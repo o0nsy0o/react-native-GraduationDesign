@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maxinum-scale=1,mininum-scale=1,minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta name="apple-moblie-web-app-capable" content="yes">
+    <meta name="apple_moblie-web-app-status-bar-style" content="black">
+    <meta name="apple-moblie-web-app-title" content="地图">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>地图</title>
+</head>
+
+    <style type="text/css">
+      body,html,#map{
+        height: 100%;
+        margin: 0px;
+        font:12px Arial;
+      }
+    </style>
+
+<body>
+    <div id="map"></div>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=6578c36670217153655c91036d5ef8ed"></script>
+    <script>
+        //url获取参数
+        var provinces=[];
+        var coordinate=null;
+        var centerPointer='';
+        centerPointer = getUrlParam("pos").split(',');
+        coordinate = getUrlParam("markers").split(',');
+        var j=0
+        for(var i = 0 ;i<coordinate.length;i += 2){
+            provinces[j]={
+                'center':coordinate[i]+','+coordinate[i+1]
+            };
+            j++;
+        }
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg); //匹配目标参数
+            if (r != null) return unescape(r[2]);
+            return null; //返回参数值
+        }
+        //画点
+        var map = new AMap.Map('map',{resizeEnable: true,zoom:8,center:centerPointer});
+        var markers = []; //province保存坐标
+        for (var i = 0; i < provinces.length; i++) {
+            var marker;
+            marker = new AMap.Marker({
+                position: provinces[i].center.split(','),
+                // title: provinces[i].name,
+                map: map
+            });
+    	}
+    	markers.push(marker);
+        map.setFitView(markers);
+    </script>
+</body>
+</html>
