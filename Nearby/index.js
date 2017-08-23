@@ -81,7 +81,7 @@ export default class Nearby extends Component{
                             barTintColor='#007AFF'//设置这个导航的背景颜色。
                             titleTextColor='#FFF'//设置这个导航的字体颜色。
                             tintColor='#FFF'//导航上按钮的颜色设置
-                            ref='nav_film'//鬼知道
+                            ref='nav_film'
                             style={styles.container}
                             initialRoute={{
                                 component:Film,
@@ -112,7 +112,7 @@ export default class Nearby extends Component{
                             barTintColor='#007AFF'//设置这个导航的背景颜色。
                             titleTextColor='#FFF'//设置这个导航的字体颜色。
                             tintColor='#FFF'//导航上按钮的颜色设置
-                            ref='nav_bank'//鬼知道
+                            ref='nav_bank'
                             style={styles.container}
                             initialRoute={{
                                 component:Bank,
@@ -143,7 +143,7 @@ export default class Nearby extends Component{
                             barTintColor='#007AFF'//设置这个导航的背景颜色。
                             titleTextColor='#FFF'//设置这个导航的字体颜色。
                             tintColor='#FFF'//导航上按钮的颜色设置
-                            ref='nav_toilet'//鬼知道
+                            ref='nav_toilet'
                             style={styles.container}
                             initialRoute={{
                                 component:Toilet,
